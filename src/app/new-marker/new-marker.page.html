@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="close" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Nuevo marcador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate [formGroup]="addMarker">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating"
+          >Nombre<ion-text color="danger">*</ion-text></ion-label
+        >
+        <ion-input
+          required
+          formControlName="nombre"
+          placeholder="Nombre marcador"
+          formControlName="nombre"
+          type="text"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"
+          >Latiitud<ion-text color="danger">*</ion-text></ion-label
+        >
+        <ion-input
+          formControlName="latitud"
+          type="text"
+          *ngIf="latitud"
+          value="{{latitud}}"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"
+          >Longitud<ion-text color="danger">*</ion-text></ion-label
+        >
+        <ion-input
+          formControlName="longitud"
+          *ngIf="longitud"
+          value="{{longitud}}"
+        ></ion-input>
+      </ion-item>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="guardar()">
+          <ion-icon color="primary" name="add"></ion-icon>
+          Agregar
+        </ion-button>
+      </ion-buttons>
+    </ion-list>
+  </form>
+</ion-content>
